@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b1eff1b3b79a742b2db9bc2d62302c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPresist: 1
   stressfulMinigames:
   - DoWork
   relaxingMinigames: []
+  stressfulMinigamesCompleted: 0

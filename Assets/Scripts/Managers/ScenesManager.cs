@@ -8,6 +8,7 @@ public class ScenesManager : MonoBehaviour
     [SerializeField] private string successScreen;
     [SerializeField] private string failScreen;
     [SerializeField] private string gameOverScreen;
+    [SerializeField] private string transitionScreen;
 
     public void LoadScene(string sceneName)
     {
@@ -34,6 +35,17 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(gameOverScreen);
     }
 
+    private void LoadTransitionScreen()
+    {
+        SceneManager.LoadScene(transitionScreen);
+    }
+
+    public void StartGame()
+    {
+        GameManager.onStartNewSession?.Invoke();
+        LoadTransitionScreen();
+    }
+
     public void ExitApplication()
     {
         Debug.Log("Quitting...");
@@ -45,6 +57,7 @@ public class ScenesManager : MonoBehaviour
         GameManager.onSucceedLevel += LoadSuccessScreen;
         GameManager.onFailedLevel += LoadFailScreen;
         GameManager.onGameOver += LoadGameOverScreen;
+        GameManager.onDayFinished += LoadTransitionScreen;
     }
 
     private void OnDisable()
@@ -52,5 +65,6 @@ public class ScenesManager : MonoBehaviour
         GameManager.onSucceedLevel -= LoadSuccessScreen;
         GameManager.onFailedLevel -= LoadFailScreen;
         GameManager.onGameOver -= LoadGameOverScreen;
+        GameManager.onDayFinished -= LoadTransitionScreen;
     }
 }

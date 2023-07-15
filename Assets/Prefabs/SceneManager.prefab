@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a25308d43466b45bc148c57d7b3eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  successScreen: 
-  failScreen: 
-  gameOverScreen: 
+  successScreen: Success
+  failScreen: Fail
+  gameOverScreen: GameOver
+  transitionScreen: Transition
