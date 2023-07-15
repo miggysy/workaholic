@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<string> stressfulMinigames = new List<string>();
+    [SerializeField] private List<string> relaxingMinigames = new List<string>();
+    private ScenesManager scenesManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        scenesManager = FindObjectOfType<ScenesManager>();
+    }
+    public void LoadRandomStressfulMinigame()
+    {
+        scenesManager.LoadScene(stressfulMinigames[Random.Range(0, stressfulMinigames.Count)]);
+    }
+    public void LoadRandomRelaxingMinigame()
+    {
+        scenesManager.LoadScene(relaxingMinigames[Random.Range(0, relaxingMinigames.Count)]);
     }
 }
