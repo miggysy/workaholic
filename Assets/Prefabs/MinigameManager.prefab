@@ -47,5 +47,6 @@ MonoBehaviour:
   isPresist: 1
   stressfulMinigames:
   - DoWork
+  - Meeting
   relaxingMinigames: []
   stressfulMinigamesCompleted: 0

@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Transition.unity
     guid: dc2e9f7028d9df24b814ecaaf70badd3
   - enabled: 1
-    path: Assets/Scenes/DoWork 1.unity
-    guid: f8a61821025c9b949819b119911e7a23
-  - enabled: 1
     path: Assets/Scenes/Fail.unity
     guid: 6840ad6cc68a65146bd1c842c2646d67
+  - enabled: 1
+    path: Assets/Scenes/Meeting.unity
+    guid: 722fc243b5c207543a7dd5da6cb7d709
   m_configObjects: {}
