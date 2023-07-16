@@ -21,12 +21,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void GainScore() => day++;
-    private void ResetScore() 
-    {
-        Debug.Log("Resetting score. Day:" + day);
-        day = 1;
-        Debug.Log(day);
-    }
+    private void ResetScore() => day = 1;
 
     private void OnEnable()
     {

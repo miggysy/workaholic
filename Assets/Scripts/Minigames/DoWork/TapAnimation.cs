@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputPromptTapAnimation : MonoBehaviour
+public class TapAnimation : MonoBehaviour
 {
     private Animator animator;
 

@@ -42,9 +42,16 @@ public class ThoughtBubble : MonoBehaviour
             GameManager.onFailedLevel?.Invoke();
         }
 
-        meeting.SpawnThoughtBubble(this);
-
+        GetComponent<Animator>().SetTrigger("Popped");
+        
         //Disable game object
+        Invoke("DisableObject", 0.25f);
+        
+    }
+
+    private void DisableObject()
+    {
+        meeting.SpawnThoughtBubble(this);
         gameObject.SetActive(false);
     }
 

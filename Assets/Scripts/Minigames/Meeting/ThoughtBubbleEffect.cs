@@ -6,11 +6,11 @@ public class ThoughtBubbleEffect : MonoBehaviour
 {
     [SerializeField][Range(0f,1f)] private float durationThreshold;
     private float maxDuration;
-    private Animation anim;
+    private Animator anim;
     private ThoughtBubble thoughtBubble;
     void Awake()
     {
-        anim = GetComponent<Animation>();
+        anim = GetComponent<Animator>();
         thoughtBubble = GetComponent<ThoughtBubble>();
     }
 
@@ -22,15 +22,7 @@ public class ThoughtBubbleEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(anim.isPlaying) return;
-        if(thoughtBubble.Duration <= maxDuration * durationThreshold) anim.Play();
-    }
-
-    private void OnDisable()
-    {
-        anim.Rewind();
-        anim.Play();
-        anim.Sample();
-        anim.Stop();
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("ThoughtBubbleShake")) return;
+        if(thoughtBubble.Duration <= maxDuration * durationThreshold) anim.SetTrigger("Warning");
     }
 }
