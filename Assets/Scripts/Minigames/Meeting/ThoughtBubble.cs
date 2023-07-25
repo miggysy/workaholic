@@ -8,6 +8,7 @@ public class ThoughtBubble : MonoBehaviour
     public float Duration { get => duration; set => duration = value; }
     private bool playerPopped;
     private Meeting meeting;
+    private bool isPopping;
 
     private void Awake()
     {
@@ -34,7 +35,9 @@ public class ThoughtBubble : MonoBehaviour
     
     private void PopBubble()
     {
-        //Play animation
+        if(isPopping) return;
+
+        isPopping = true;
 
         if(!playerPopped)
         {
@@ -42,6 +45,7 @@ public class ThoughtBubble : MonoBehaviour
             GameManager.onFailedLevel?.Invoke();
         }
 
+        //Play animation
         GetComponent<Animator>().SetTrigger("Popped");
         
         //Disable game object
@@ -51,6 +55,7 @@ public class ThoughtBubble : MonoBehaviour
 
     private void DisableObject()
     {
+        isPopping = false;
         meeting.SpawnThoughtBubble(this);
         gameObject.SetActive(false);
     }
